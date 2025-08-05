@@ -14,7 +14,7 @@ import Cookies from "js-cookie"
 
 import { useState } from "react"
 import { useRouter } from "next/navigation"
-import axios from "./axios"
+import axios from "../axios"
 
 export default function LoginPage() {
     const [formData, setFormData] = useState({
