@@ -122,7 +122,7 @@ function AdminDashboardPageContent() {
         getTodos(searchQuery, statusQuery, page);
     }, [searchParams, page, pageSize]);
 
-useEffect(() => {
+    useEffect(() => {
         updateQueryParams();
     }, [searchValue, statusFilter, page]);
 
