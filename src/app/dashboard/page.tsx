@@ -99,98 +99,101 @@ export default function UserDashboard() {
     
 
     return (
-        <div className='flex flex-col items-center w-full h-screen'>
-            <div className='flex w-screen items-center justify-between px-10 mt-3 gap-10'>
-                <div className='flex ' >
-                    <Image src={star} width={40} alt="Star Icon" />
-                    <Input 
-                    id='search'
-                    placeholder='search (ctrl+/)'
-                    value={searchValue}
-                    onChange={e => {
-                        setSearchValue(e.target.value);
-                        handleSearchDebounced(e.target.value);
-                    }}/>
-                </div>
-                <Popover >
-                    <PopoverTrigger className='w-56' asChild>
-                        <div className='flex items-center gap-2 cursor-pointer'>
-                            <h1>{username}</h1>
-                            <Image src={profileUser} width={40} alt="" />
-                        </div>
-                    </PopoverTrigger>
-                    <PopoverContent className="w-50 flex items-center justify-center">
-                        <Button variant='destructive' onClick={handleLogOut} className='w-full'>
-                            Log Out
-                        </Button>
-                    </PopoverContent>
-                </Popover>
-            </div>
-            <div className="flex flex-col items-center justify-center w-full h-full">
-                <h1 className="text-[56px] font-[poppins] font-[700] text-[#174286]">To Do</h1>
-                <Card className="w-full max-w-[800px]">
-                    <CardContent className='flex flex-col gap-4'>
-                        <p>add a new task</p>
-                        <form className="flex flex-col gap-4" onSubmit={handleAddTodo}>
-                            <div className="flex w-full items-center gap-10">
-                                <input type="text   " 
-                                value={newTodo} 
-                                onChange={(e) => setNewTodo(e.target.value)}
-                                placeholder="add new todo"
-                                className=' appearance-none border-b-4 border-black w-full text-[30px]' />
-                                <Button type='submit' variant="outline" className='bg-[#0062FF] text-[25px] px-5 py-7 text-white font-[poppins] font-[900]'>
-                                    Add Todo
-                                </Button>
-                            </div>
-                            {todoList.length > 0 ? (
-                                <div className='my-5 max-h-64 overflow-y-auto' >
-                                    {todoList.map((todo) => (
-                                        <div  key={todo.id}>
-                                            <div className='flex justify-between py-4 px-5'>
-                                                <div className='flex items-center gap-4'>
-                                                    <input 
-                                                        type="checkbox"
-                                                        id={todo.id} 
-                                                        checked={selectedValues.includes(todo.id)} 
-                                                        className='cursor-pointer w-6 h-6'
-                                                        onChange={(e) => {
-                                                            if (e.target.checked) {
-                                                            setSelectedValues((prev) => [...prev, todo.id]);
-                                                            } else {
-                                                            setSelectedValues((prev) => prev.filter((id) => id !== todo.id));
-                                                            }
-                                                        }} 
-                                                        />
-                                                    <Label className='text-[30px]' htmlFor={todo.id}>{todo.item}</Label>
-                                                </div>
-                                                <button onClick={() => handleStatusChange(todo.id, todo.isDone)}>
-                                                    <Image 
-                                                        src={todo.isDone ? done : undone} 
-                                                        width={20} 
-                                                        height={20} 
-                                                        alt={todo.isDone ? "Done" : "Undone"} 
-                                                    />
+        <div className='flex flex-col items-center w-full h-screen bg-[#E6E6E6]'>
+            <div className="bg-[url('@/../public/bg-shape.svg')] w-full h-screen bg-no-repeat bg-position-[0_-140px] bg-contain flex flex-col items-center justify-center">
 
-                                                </button>
-                                            </div>
-                                            <Separator className="my-2" />
-                                        </div>
-                                    ))}
-                                </div>
-                            ) : (
-                                <p>No todos available</p>
-                            )}
-                            <div>
-                                <Button variant='destructive' 
-                                onClick={handleDeleteSelected}
-                                disabled={selectedValues.length === 0}
-                                >deleted selected</Button>
+                <div className='flex w-screen items-center justify-between px-10 mt-3 gap-10'>
+                    <div className='flex ' >
+                        <Image src={star} width={40} alt="Star Icon" />
+                        <Input 
+                        id='search'
+                        placeholder='search (ctrl+/)'
+                        value={searchValue}
+                        onChange={e => {
+                            setSearchValue(e.target.value);
+                            handleSearchDebounced(e.target.value);
+                        }}/>
+                    </div>
+                    <Popover >
+                        <PopoverTrigger className='w-56' asChild>
+                            <div className='flex items-center gap-2 cursor-pointer'>
+                                <h1>{username}</h1>
+                                <Image src={profileUser} width={40} alt="" />
                             </div>
-                        </form>
-                    </CardContent>
-                        
-                </Card>
-                
+                        </PopoverTrigger>
+                        <PopoverContent className="w-50 flex items-center justify-center">
+                            <Button variant='destructive' onClick={handleLogOut} className='w-full'>
+                                Log Out
+                            </Button>
+                        </PopoverContent>
+                    </Popover>
+                </div>
+                <div className="flex flex-col items-center justify-center w-full h-full">
+                    <h1 className="text-[46px]  font-[700] text-[#174286]">To Do</h1>
+                    <Card className="w-full max-w-[800px]">
+                        <CardContent className='flex flex-col gap-4'>
+                            <p>add a new task</p>
+                            <form className="flex flex-col gap-4" onSubmit={handleAddTodo}>
+                                <div className="flex w-full items-center gap-10">
+                                    <input type="text   " 
+                                    value={newTodo} 
+                                    onChange={(e) => setNewTodo(e.target.value)}
+                                    placeholder="add new todo"
+                                    className=' appearance-none border-b-4 border-black w-full text-[30px]' />
+                                    <Button type='submit' variant="outline" className='bg-[#0062FF] text-[25px] px-5 py-7 text-white  font-[600]'>
+                                        Add Todo
+                                    </Button>
+                                </div>
+                                {todoList.length > 0 ? (
+                                    <div className='my-5 max-h-64 overflow-y-auto' >
+                                        {todoList.map((todo) => (
+                                            <div  key={todo.id}>
+                                                <div className='flex justify-between py-4 px-5'>
+                                                    <div className='flex items-center gap-4'>
+                                                        <input 
+                                                            type="checkbox"
+                                                            id={todo.id} 
+                                                            checked={selectedValues.includes(todo.id)} 
+                                                            className='cursor-pointer w-6 h-6'
+                                                            onChange={(e) => {
+                                                                if (e.target.checked) {
+                                                                setSelectedValues((prev) => [...prev, todo.id]);
+                                                                } else {
+                                                                setSelectedValues((prev) => prev.filter((id) => id !== todo.id));
+                                                                }
+                                                            }} 
+                                                            />
+                                                        <Label className='text-[20px]' htmlFor={todo.id}>{todo.item}</Label>
+                                                    </div>
+                                                    <button onClick={() => handleStatusChange(todo.id, todo.isDone)}>
+                                                        <Image 
+                                                            src={todo.isDone ? done : undone} 
+                                                            width={20} 
+                                                            height={20} 
+                                                            alt={todo.isDone ? "Done" : "Undone"} 
+                                                        />
+
+                                                    </button>
+                                                </div>
+                                                <Separator className="my-2" />
+                                            </div>
+                                        ))}
+                                    </div>
+                                ) : (
+                                    <p>No todos available</p>
+                                )}
+                                <div>
+                                    <Button variant='destructive' 
+                                    onClick={handleDeleteSelected}
+                                    disabled={selectedValues.length === 0}
+                                    >deleted selected</Button>
+                                </div>
+                            </form>
+                        </CardContent>
+                            
+                    </Card>
+                    
+                </div>
             </div>
         </div>
     )

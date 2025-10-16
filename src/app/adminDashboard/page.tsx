@@ -184,7 +184,7 @@ function AdminDashboardPageContent() {
                                 placeholder="search"
                                 className=" appearance-none border-b-1 border-black w-[150px] bg-no-repeat bg-size-[15px]  bg-left pl-8 "
                                 style={{backgroundImage:`url(${searchLogo.src})`}} />
-                                <Button type='submit' variant="outline" className='bg-[#0062FF]  px-5 py-1 text-white font-[poppins] font-[400]'>
+                                <Button type='submit' variant="outline" className='bg-[#0062FF]  px-5 py-1 text-white  font-[400]'>
                                     search
                                 </Button>
                             </div>

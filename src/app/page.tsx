@@ -55,7 +55,7 @@ export default function LoginPage() {
 
   return (
     <div className="flex flex-col items-center justify-center w-full h-screen" >
-        <h1 className=" text-[56px] font-[poppins] font-[700] text-[#44444F]">Sign In</h1>
+        <h1 className=" text-[56px]  font-[700] text-[#44444F]">Sign In</h1>
         <p className="my-5 text-[#92929D]">Just sign in if you have an account in here. Enjoy our Website</p>
         <Card className="w-full max-w-sm">
         
