@@ -71,7 +71,7 @@ export default function LoginPage() {
 
   return (
     <div className="flex flex-col items-center justify-center w-full h-screen bg-[#FAFAFB]" >
-        <div className="bg-[url('@/../public/bg-shape.svg')] w-full h-screen bg-no-repeat bg-position-[0_-140px] bg-contain flex flex-col items-center justify-center">
+        <div className="bg-[url('/bg-shape.svg')] w-full h-screen bg-no-repeat bg-position-[0_-140px] bg-contain flex flex-col items-center justify-center">
 
             <h1 className=" text-[46px] font-[700] text-[#44444F]">Register</h1>
             <p className="my-5 text-[#92929D]">Let’s Sign up first for enter into Square Website. Uh She Up!</p>

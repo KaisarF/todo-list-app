@@ -100,7 +100,7 @@ export default function UserDashboard() {
 
     return (
         <div className='flex flex-col items-center w-full h-screen bg-[#E6E6E6]'>
-            <div className="bg-[url('@/../public/bg-shape.svg')] w-full h-screen bg-no-repeat bg-position-[0_-140px] bg-contain flex flex-col items-center justify-center">
+            <div className="bg-[url('/bg-shape.svg')] w-full h-screen bg-no-repeat bg-position-[0_-140px] bg-contain flex flex-col items-center justify-center">
 
                 <div className='flex w-screen items-center justify-between px-10 mt-3 gap-10'>
                     <div className='flex ' >
